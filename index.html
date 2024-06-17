@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+     <!-- Font Awesome -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+   <style>
+        body {
+            background: url('imagemparaosit/img07.webp')no-repeat center center fixed;
+            background-size: cover; /* Garante que a imagem cubra todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            
+        }
+        .conteudo {
+            /* Estilos para o conteúdo da página */
+            padding: 20px;
+            color: #f3f8f8; /* Cor do texto para contraste */
+        }
+        body {
+            padding-top: 100px;
+        }
+        .container {
+            max-width: 900px;
+           
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-icon {
+            font-size: 60px;
+        }
+        .carousel-item {
+            height: 400px; /* Defina a altura que desejar */
+            background-size: cover;
+            background-position: center;
+          
+        }
+        .carousel-caption {
+            text-align: justify; /* Centraliza o texto horizontalmente */
+            background-color: rgba(0, 0, 0, 0.603); /* Fundo semi-transparente para legibilidade */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza o texto verticalmente */
+            
+            height: 90%; /* Garante que a legenda ocupe toda a altura do slide */
+        }
+        .carousel-caption h3, .carousel-caption p {
+            color: #fff; /* Texto branco */
+        }
+        .carousel-indicators li {
+            background-color: #ffffff31; /* Indicadores brancos */
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #0000004f; /* Ícones de controle pretos */
+            border-radius: 50%;
+        }
+        .carousel-caption h3 {
+            font-size: 2rem; /* Aumenta o tamanho da fonte do título */
+            text-align: center;
+        }
+
+        .carousel-caption p {
+            font-size: 1.25rem; /* Aumenta o tamanho da fonte do parágrafo */
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.555); /* White with 80% opacity */
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.514);
+        }
+        .card-icon {
+            font-size: 3rem;
+            color: #007bffda;
+        }
+        .navbar {
+            background-color: rgba(22, 21, 21, 0.473) !important; /* Transparência */
+        }
+        .nav-link {
+            color: rgba(95, 226, 220, 0.781) !important;
+            display: flex;
+            align-items: center;
+        }
+        .nav-link .fa {
+            margin-right: 10px;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-icon {
+            font-size: 3rem;
+        }
+        /* Inicialmente esconda o conteúdo */
+        .preload {
+            opacity: 0;
+        }
+
+        /* Quando a classe fade-in for aplicada */
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Keyframes para fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Fade-out */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        /* Keyframes para fade-out */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="preload">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            
+            <a class="navbar-brand" href="#">Portal de Calculadoras</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a type="button" class="nav-link  btn btn-outline-dark" href="ruido.html">
+                            <i class="bi bi-ear"></i><b> Dose de Ruído</b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link btn btn-outline-dark" href="agentequimicos.html">
+                            <i class="fa fa-flask"></i> <b>Agentes Químicos</b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link  btn btn-outline-dark" href="novoibutg.html">
+                            <i class="fa fa-thermometer-half"></i> <b>Exposição ao Calor</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-center mb-5"><strong><span class="typed" data-typed-items="Calculadoras de Limites de Tolerância - NR 15"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></strong></h1>
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+            <div id="infoCarousel " class="carousel slide  w-100 mb-4" data-bs-ride="carousel" data-bs-interval="4000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-image: url('');">
+                        <div class="carousel-caption">
+                            <h3>Introdução às Calculadoras de Segurança do Trabalho</h3>
+                            <p>Bem-vindo ao nosso Portal de Calculadoras de Segurança do Trabalho! Aqui, você encontrará ferramentas essenciais para avaliar e monitorar os riscos ocupacionais relacionados ao ruído, agentes químicos e exposição ao calor. Nossas calculadoras são projetadas para ajudar você a cumprir as normas regulamentadoras e garantir a saúde e segurança no ambiente de trabalho.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('');">
+                        <div class="carousel-caption">
+                            <h3>Importância da Segurança do Trabalho</h3>
+                            <p>A segurança do trabalho é fundamental para proteger os trabalhadores dos riscos à saúde presentes no ambiente laboral. Monitorar a exposição a ruídos, substâncias químicas e condições térmicas adversas é crucial para prevenir doenças ocupacionais e acidentes de trabalho. Utilizando nossas ferramentas, você pode garantir um ambiente de trabalho mais seguro e saudável.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('');">
+                        <div class="carousel-caption">
+                            <h3>Normas Regulamentadoras (NRs)</h3>
+                            <p>As Normas Regulamentadoras (NRs) estabelecem os requisitos obrigatórios relacionados à segurança e medicina do trabalho. A NR15 trata dos limites de tolerância para agentes nocivos à saúde, incluindo ruído, agentes químicos e calor. Nossa plataforma oferece calculadoras específicas para ajudar você a cumprir essas normas e assegurar a conformidade com a legislação.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('');">
+                        <div class="carousel-caption">
+                            <h3>Como Usar as Calculadoras</h3>
+                            <p>Nossas calculadoras são intuitivas e fáceis de usar. Basta selecionar a calculadora desejada, inserir os dados necessários e obter resultados precisos para a avaliação dos riscos. Se precisar de ajuda, consulte as instruções detalhadas fornecidas em cada seção ou entre em contato com nossa equipe de suporte.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('');">
+                        <div class="carousel-caption">
+                            <h3>Benefícios das Calculadoras Online</h3>
+                            <p>Utilizar nossas calculadoras online traz diversos benefícios, como:
+                                <ul>
+                                    <li>Acesso rápido e fácil a ferramentas de avaliação de riscos.</li>
+                                    <li>Resultados precisos e confiáveis.</li>
+                                    <li>Ajuda na tomada de decisões informadas sobre a segurança do trabalho.</li>
+                                    <li>Conformidade com as regulamentações de segurança ocupacional.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+      
+    <div class="container mt-5 pt-5">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div id="doseRuido" class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="card-icon mb-3"><i class="bi bi-ear"></i></div>
+                        <h2 class="card-title">Dose de Ruído</h2>
+                        <p class="card-text">Calcule a dose de ruído a que os trabalhadores estão expostos.</p>
+                        <a href="ruido.html" class="btn btn-primary" id="backToHome">Acessar Calculadora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div id="agentesQuimicos" class="card h-100">
+                    <div class="card-body">
+                        <div class="card-icon mb-3"><i class="fas fa-flask"></i></div>
+                        <h2 class="card-title">Agentes Químicos</h2>
+                        <p class="card-text">Calcule a exposição a agentes químicos no ambiente de trabalho.</p>
+                        <a href="agentequimicos.html" class="btn btn-primary" id="backToHome">Acessar Calculadora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div id="exposicaoCalor" class="card h-100">
+                    <div class="card-body">
+                        <div class="card-icon mb-3"><i class="bi bi-thermometer-sun"></i></div>
+                        <h2 class="card-title">Exposição ao Calor</h2>
+                        <p class="card-text">Calcule a exposição ao calor no ambiente de trabalho.</p>
+                        <a href="novoibutg.html" class="btn btn-primary" id="backToHome">Acessar Calculadora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="index.js"></script>
+     <!-- Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+        <div class="container" data-aos="fade-up" data-aos-delay="1000">
+         
+        </div>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <footer class="text-center">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="md-7">
+                <p>&copy; 2024 Portal de Calculadoras. Todos os direitos reservados.</p>
+            </div>
+      </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(17, 107, 143, 0.288);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1250px;
+    margin: 20px auto;
+    background-color:rgba(255, 255, 255, 0.233) !important;;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td {
+    border: 1px solid black;
+    text-align: center; /* Centraliza o texto na célula */
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo */
+  }
+  
+  /* Estilos para a tabela e células com bordas arredondadas */
+ .table-rounded {
+    border-collapse: separate;
+    border-spacing: 2;
+    border-radius: 10px; /* Borda arredondada para a tabela */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a borda arredondada */
+}
+
+.table-rounded th,
+.table-rounded td {
+    padding: 10px; /* Espaçamento interno */
+}
+
+/* Estilos para a tabela escura */
+.table-dark {
+    background-color:rgba(22, 21, 21, 0.185) !important; /* Cor de fundo escura para a tabela */
+    color: #fff; /* Cor do texto */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .custom-input {
+    width: 25%; /* Defina o tamanho desejado */
+  }
+  /* Ajusta a largura da tabela de acordo com a largura da div */
+.my-custom-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Ajusta a largura da tabela para ocupar 100% da largura da div contêiner */
+.table {
+    width: 100%;
+}
+
+/* Certifica que os inputs dentro da tabela ocupem toda a largura das células */
+.table td .form-control {
+    width: 100%;
+}
+
+/* Centraliza o texto dentro das células da tabela */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Agentes Quimicos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="agentequimicos.css">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+     <!-- Font Awesome -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('imagemparaosit/img07.webp')no-repeat center center fixed;
+            background-size: cover; /* Garante que a imagem cubra todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            padding-top: 60px; /* Ajuste este valor conforme necessário */
+            
+        }
+         .navbar {
+            background-color: rgba(22, 21, 21, 0.753) !important; /* Transparência */
+        }
+        .nav-link {
+            color: rgba(95, 226, 220, 0.781) !important;
+            display: flex;
+            align-items: center;
+        }
+        .nav-link .fa {
+            margin-right: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ebf2f3;
+            border: 1px solid #32a153;
+            border-radius: 5px;
+        }
+      /* Inicialmente esconda o conteúdo */
+      .preload {
+                opacity: 0;
+            }
+
+        /* Quando a classe fade-in for aplicada */
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Keyframes para fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Fade-out */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        /* Keyframes para fade-out */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="preload">
+   
+    <div class="container">
+        <h1 class="center mb-4"><strong> Cálculo de Agentes Quimicos - NR 15 <br>Anexo Nº11</strong></h1>
+        
+        <!-- Primeira Seção -->
+        <div>
+            <section>
+                <h2><strong>Primeira Seção - Média Aritmética (10 Medições)</strong></h2>
+                <p><strong>Insira 10 medições de concentração (ppm). O intervalo entre as medições é de 20 minutos.</strong></p>
+                        <input type="number" id="measure1" placeholder="Medição 1">
+                        <input type="number" id="measure2" placeholder="Medição 2">
+                        <input type="number" id="measure3" placeholder="Medição 3">
+                        <input type="number" id="measure4" placeholder="Medição 4">
+                        <input type="number" id="measure5" placeholder="Medição 5">
+                        <input type="number" id="measure6" placeholder="Medição 6">
+                        <input type="number" id="measure7" placeholder="Medição 7">
+                        <input type="number" id="measure8" placeholder="Medição 8">
+                        <input type="number" id="measure9" placeholder="Medição 9">
+                        <input type="number" id="measure10" placeholder="Medição 10">
+                <br><br>
+                <button class="btn btn-primary" onclick="calculateAverage()">Calcular Média</button>
+                <p id="result1" class="mt-3 result" style="display: none;"></p>
+            </section>
+        </div>
+        
+        <!-- Segunda Seção -->
+        <section>
+            <h2><strong>Seção - Valor Teto</strong></h2>
+            <p><strong>10 medições de concentração (ppm)</strong></p>
+            <input type="number" id="measure11" placeholder="Medição 1">
+            <input type="number" id="measure12" placeholder="Medição 2">
+            <input type="number" id="measure13" placeholder="Medição 3">
+            <input type="number" id="measure14" placeholder="Medição 4">
+            <input type="number" id="measure15" placeholder="Medição 5">
+            <input type="number" id="measure16" placeholder="Medição 6">
+            <input type="number" id="measure17" placeholder="Medição 7">
+            <input type="number" id="measure18" placeholder="Medição 8">
+            <input type="number" id="measure19" placeholder="Medição 9">
+            <input type="number" id="measure20" placeholder="Medição 10">
+            <label><strong>Limite de Tolerância estabelecida no Quadro Nº1:</strong></label>
+            <input type="number" id="limit" placeholder="L T">
+            <br><br>
+            <button  class="btn btn-primary" onclick="checkInsalubridade()">Verificar Insalubridade</button>
+            <p id="result2" class="mt-3 result" style="display: none;"></p>
+        </section>
+        
+        <!-- Terceira Seção -->
+        <section  class="mb-5">
+            <h2><strong>Terceira Seção - Valor Máximo (VM)</strong></h2>
+            <p><strong>Usando os dados da segunda seção</strong></p>
+            <button  class="btn btn-primary" onclick="calculateVM()">Calcular Valor Máximo</button>
+            <p id="result3" class="mt-3 result" style="display: none;"></p>
+        </section>
+            <!-- Grupo de botões para escolher qual imagem exibir -->
+        <section>
+            <h2><strong>Tabela do Anexo Nº11-Quadro Nº1 - Limites de tolerância</strong></h2>    
+            <div class="btn-group btn-group-75 " role="group" aria-label="Escolher Imagem">
+                <button type="button" class="btn btn-info" onclick="toggleImagem('img-agentequimico/anexo11quadroN1-1.jpg')">Exibir Imagem 1</button>
+                <button type="button" class="btn btn-info" onclick="toggleImagem('img-agentequimico/anexo11quadroN1-2.jpg')">Exibir Imagem 2</button>
+                <button type="button" class="btn btn-info" onclick="toggleImagem('img-agentequimico/anexo11quadroN1-3.jpg')">Exibir Imagem 3</button>
+                <button type="button" class="btn btn-info" onclick="toggleImagem('img-agentequimico/anexo11quadroN1-4.jpg')">Exibir Imagem 4</button>
+                <button type="button" class="btn btn-info" onclick="toggleImagem('img-agentequimico/anexo11quadroN1-5.jpg')">Exibir Imagem 5</button>
+            </div>
+        </section>
+
+            <!-- Fundo escurecido -->
+            <div id="overlay"></div>
+
+            <!-- Div para conter a imagem -->
+            <div id="imagem">
+                <img id="imgToShow" src="" alt="Imagem" style="width: 100%; height: auto;">
+            </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="col-md-10 mx-auto ">
+            <a href="index.html" class="btn btn-info btn-lg" id="backToHome">Inicio</a>
+    </div>
+    </div>
+    <script src="agentequimicos.js"></script>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+
+   
+</body>
+</html>

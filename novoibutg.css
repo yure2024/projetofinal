@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(22, 21, 21, 0.185) !important;;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.233)  !important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.808);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 2px;
+}
+
+input[type="number"] {
+    width: calc(40% - 20px);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.btn-group-75 {
+    width: 25%;
+    text-align: center;
+
+}
+.btn-full {
+    width: 25%;
+}
+button {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: #ff0000;
+    color: #d8db0993;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #37b0ce;
+}
+
+#btnCalcularIBUTGMedia {
+    margin-top: 10px; /* Espaçamento superior adicional para este botão */
+}
+.btn-success {
+    background-color: #28a745; /* Cor de fundo verde para o botão de sucesso */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+}
+
+.btn-group {
+    display: flex; /* Usa flexbox para colocar os botões um ao lado do outro */
+    justify-content: space-around; /* Distribui o espaço entre os botões */
+}
+
+.btn {
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+    width: 200px; /* Tamanho padrão dos botões */
+}
+
+.btn-success {
+    background-color: #28a745; /* Cor de fundo verde para o botão de sucesso */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Cor de fundo azul para o botão primário */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+}
+
+ /* Estilos para a tabela e células com bordas arredondadas */
+ .table-rounded {
+    border-collapse: separate;
+    border-spacing: 2;
+    border-radius: 10px; /* Borda arredondada para a tabela */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a borda arredondada */
+}
+
+.table-rounded th,
+.table-rounded td {
+    padding: 10px; /* Espaçamento interno */
+}
+
+/* Estilos para a tabela escura */
+.table-dark {
+    background-color:rgba(22, 21, 21, 0.185) !important; /* Cor de fundo escura para a tabela */
+    color: #fff; /* Cor do texto */
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+  }
+  td {
+    border: 1px solid black;
+    text-align: center; /* Centraliza o texto na célula */
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo */
+  }
+
+  .my-custom-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Ajusta a largura da tabela para ocupar 100% da largura da div contêiner */
+.table {
+    width: 100%;
+}
+
+/* Certifica que os inputs dentro da tabela ocupem toda a largura das células */
+.table td .form-control {
+    width: 60%;
+    
+}
+
+/* Centraliza o texto dentro das células da tabela */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+/* Adiciona margens aos botões */
+.btn-group-75 .btn {
+    margin: 5px;
+    width: 150px
+}
+
+/* Certifica que os botões ocupem 75% da largura da div pai */
+.btn-group-75 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+/* Centraliza o título */
+.text-center {
+    text-align: center;
+}
+  

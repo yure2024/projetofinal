@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do IBUTG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="novoibutg.css">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+     <!-- Font Awesome -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+   <style>
+         body {
+            background: url('imagemparaosit/img07.webp')no-repeat center center fixed;
+            background-size: cover; /* Garante que a imagem cubra todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            padding-top: 60px; /* Ajuste este valor conforme necessário */
+            
+        }
+        #imagem {
+            display: none;
+            transition: transform 0.3s ease-in-out;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            z-index: 1000;
+            width: 70%;
+            max-width: 400p;
+            height: auto;
+            border: 2px solid #000;
+            background-color: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 500;
+        }
+        #imgToShow {
+            width: 50vw;
+            height: auto;
+        }
+        #imagem.show {
+            display: block;
+            transform: translate(-50%, -50%) scale(1);
+            width: 50vw;
+        }
+        .btn-group-75 {
+            width: 100%;
+        }
+        #noiseTable td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .custom-input {
+            width: 100px; /* Defina o tamanho desejado */
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ebf2f3;
+            border: 1px solid #32a153;
+            border-radius: 5px;
+        }
+ /* Inicialmente esconda o conteúdo */
+ .preload {
+                opacity: 0;
+            }
+
+        /* Quando a classe fade-in for aplicada */
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Keyframes para fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Fade-out */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        /* Keyframes para fade-out */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="preload">
+
+    
+    <div class="container">
+        <h1 class="justify mb-4"><strong>Cálculo do IBUTG e Taxas Metabólicas - NR 15 <br>Anexo Nº3</strong></h1>
+        
+        <!-- Seção para Calcular IBUTG -->
+        <div id="calculoIBUTG" class="container-fluid">
+            <div class="container-fluid">
+                <h2 class="card-title"><strong>Calcular IBUTG</strong></h2>
+                <table class="table table-dark table-hover table-rounded" id="noiseTable">
+                    <thead>
+                        <tr>
+                            <th>Parâmetro</th>
+                            <th>Valor (°C)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Termômetro de Globo (TG)</td>
+                            <td><input type="number" id="tg" class="form-control" step="0.1"></td>
+                        </tr>
+                        <tr>
+                            <td>Temperatura de Bulbo Natural (TBN)</td>
+                            <td><input type="number" id="tbn" class="form-control" step="0.1"></td>
+                        </tr>
+                        <tr>
+                            <td>Temperatura de Bulbo Seco (TBS)</td>
+                            <td><input type="number" id="tbs" class="form-control" step="0.1"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="btnCalcularIBUTG" class="btn btn-primary">Calcular IBUTG</button>
+                <div id="resultadoIBUTG" class="mt-3 result" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <!-- Seção para Calcular IBUTG Média Ponderada -->
+        <div id="calculoIBUTGMedia" class="container-fluid">
+            <div class="container-fluid">
+                <h2 class="card-title"><strong>IBUTG Média Ponderada</strong></h2>
+                <p><strong>EXPOSTO A DUAS OU MAIS SITUAÇÕES TÉRMICAS</strong></p>
+                <table class="table table-dark table-hover table-rounded"  id="tableIBUTG">
+                    <thead>
+                        <tr>
+                            <th>Temperatura (°C)</th>
+                            <th>Tempo de Exposição (minutos)</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" class="form-control temperatura" step="0.1"></td>
+                            <td><input type="number" class="form-control tempo" step="1"></td>
+                            <td><button class="btn btn-danger remove">Remover</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="btnAdicionarIBUTG" type="button" class="btn btn-success mt-2">Adicionar Período</button>
+                <button id="btnCalcularIBUTGMedia" class="btn btn-primary mt-2">Calcular</button>
+                <div id="resultadoIBUTGMedia" class="mt-3 result" style="display: none;"></div>
+            </div>    
+        </div>
+        
+        <!-- Seção para Calcular Média de Taxas Metabólicas Ponderadas -->
+        <div id="calculoTaxasMetabolicas" class="container-fluid">
+            <div class="container-fluid">
+                <h2 class="card-title"><strong>Média de Taxas Metabólicas Ponderadas</strong></h2>
+                <table class="table table-dark table-hover table-rounded mt-3" id="tableTaxasMetabolicas">
+                    <thead>
+                        <tr>
+                            <th>Taxa Metabólica</th>
+                            <th>Tempo (minutos)</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" class="form-control taxa" step="0.1"></td>
+                            <td><input type="number" class="form-control tempoMetabolico" step="1"></td>
+                            <td><button class="btn btn-danger remove">Remover</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="btnAdicionarTaxaMetabolica" type="button" class="btn btn-success">Adicionar Período</button>
+                <button id="btnCalcularTaxaMetabolica" class="btn btn-primary">Calcular </button>
+                <div id="resultadoTaxasMetabolicas" class="mt-3 result" style="display: none;"></div>
+            </div>
+        </div>
+      
+        <section>
+            <div class="container-fluid mt-5">
+                <h2>Tabelas Conforme a NHO-06</h2>    
+                <div class=" btn btn-group-75 " role="group" aria-label="Escolher Imagem">
+                    <button type="button" class="btn btn-info" onclick="toggleImagem('img-ibutg/quadro1.png')">Quadro1</button>
+                    <button type="button" class="btn btn-info" onclick="toggleImagem('img-ibutg/quadro1a.png')">Quadro1</button>
+                    <button type="button" class="btn btn-info" onclick="toggleImagem('img-ibutg/quadro1b.png')">Quadro1</button>
+                    <button type="button" class="btn btn-info" onclick="toggleImagem('img-ibutg/quadro1c.png')">Quadro1</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleImagem('img-ibutg/quadro2.png')">Quadro2</button>
+                    <button type="button" class="btn btn-info " onclick="toggleImagem('img-ibutg/tabela1.png')">Tabela 1</button>
+                    <button type="button" class="btn btn-info " onclick="toggleImagem('img-ibutg/tabela1a.png')">Tabela 1</button>
+                    <button type="button" class="btn btn-light" onclick="toggleImagem('img-ibutg/tabela2aclimatizados.png')">Tabela 2 Aclimatizados</button>
+                    <button type="button" class="btn btn-danger" onclick="toggleImagem('img-ibutg/tabela3valorteto.png')">Tabela 3 Valor Teto</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fundo escurecido -->
+        <div id="overlay"></div>
+
+        <!-- Div para conter a imagem -->
+        <div id="imagem">
+            <img id="imgToShow" src="" alt="Imagem" style="width: 100%; height: auto;">
+        </div>
+    </div>  
+    <div class="container-fluid">
+        <div class="col-md-10 mx-auto ">
+            <a href="index.html" class="btn btn-info btn-lg" id="backToHome">Inicio</a>
+        </div>
+    </div>
+    <script>
+        var imagemDiv = document.getElementById("imagem");
+        var overlayDiv = document.getElementById("overlay");
+        var imgElement = document.getElementById("imgToShow");
+
+        // Função para exibir ou ocultar a imagem
+        function toggleImagem(src) {
+            if (imagemDiv.style.display === "none" || imgElement.src !== src) {
+                imgElement.src = src;
+                imagemDiv.classList.add("show");
+                overlayDiv.style.display = "block";
+            } else {
+                imagemDiv.classList.remove("show");
+                overlayDiv.style.display = "none";
+                imgElement.src = "";
+            }
+        }
+
+        // Adiciona um evento de clique ao overlay para ocultar a imagem
+        overlayDiv.addEventListener("click", function() {
+            imagemDiv.classList.remove("show");
+            overlayDiv.style.display = "none";
+            imgElement.src = "";
+        });
+        
+
+    </script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script2.js"></script>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+   
+</body>
+</html>
